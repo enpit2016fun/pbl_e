@@ -11,6 +11,7 @@ import android.widget.TextView;
 import pble.enpit2016.zerocontact.R;
 
 /**
+ * テスト用のフラグメント（そのうち消す）
  * Created by kyokn on 2016/10/30.
  */
 

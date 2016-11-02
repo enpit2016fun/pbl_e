@@ -7,6 +7,7 @@ import pble.enpit2016.zerocontact.communication.receive.BLEReceiver;
 import pble.enpit2016.zerocontact.communication.transmit.BLETransmitter;
 
 /**
+ * BLE周りのサービス
  * Created by kyokn on 2016/11/01.
  */
 

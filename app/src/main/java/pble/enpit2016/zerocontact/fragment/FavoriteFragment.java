@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import pble.enpit2016.zerocontact.R;
 
 /**
+ * 一回あった人（ファボした人）を表示する画面のフラグメント
  * Created by kyokn on 2016/10/31.
  */
 

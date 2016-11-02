@@ -8,6 +8,7 @@ import android.content.Context;
 import static android.bluetooth.BluetoothDevice.ACTION_FOUND;
 
 /**
+ * BLEの受信を操作するクラス
  * Created by kyokn on 2016/11/01.
  */
 

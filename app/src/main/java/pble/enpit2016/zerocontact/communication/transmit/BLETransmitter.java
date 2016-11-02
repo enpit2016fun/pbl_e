@@ -15,6 +15,7 @@ import java.nio.ByteOrder;
 import java.util.UUID;
 
 /**
+ * BLEのアドバタイズメントを操作するクラス
  * Created by kyokn on 2016/11/02.
  */
 

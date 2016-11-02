@@ -13,6 +13,7 @@ import pble.enpit2016.zerocontact.R;
 
 
 /**
+ * 自分のプロフィールを表示するフラグメント
  * Created by kyokn on 2016/10/31.
  */
 

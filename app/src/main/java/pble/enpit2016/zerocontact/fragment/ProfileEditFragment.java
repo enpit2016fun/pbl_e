@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import pble.enpit2016.zerocontact.R;
 
 /**
+ * 自分のプロフィールを編集するフラグメント
  * Created by kyokn on 2016/10/31.
  */
 
 public class ProfileEditFragment extends Fragment {
+
     public static ProfileEditFragment newInstance() {
         return new ProfileEditFragment();
     }
