@@ -15,6 +15,7 @@ import pble.enpit2016.zerocontact.fragment.ProfileFragment;
 import pble.enpit2016.zerocontact.fragment.TestFragment;
 
 /**
+ * 画面遷移を管理するクラス
  * Created by kyokn on 2016/10/30.
  */
 
@@ -25,6 +26,7 @@ public class PagerAdapter extends FragmentPagerAdapter implements CustomViewPage
         super(fragmentManager);
     }
 
+    //各タブを押したときに飛ぶフラグメントを返すことで画面が遷移します。
     @Override
     public Fragment getItem(final int position) {
         switch (position) {
@@ -41,6 +43,7 @@ public class PagerAdapter extends FragmentPagerAdapter implements CustomViewPage
         }
     }
 
+    //タブの数をここで変更できる
     @Override
     public int getCount() {
         return 4;
