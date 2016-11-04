@@ -23,6 +23,7 @@ import pble.enpit2016.zerocontact.parts.PagerAdapter;
 
 /**
  * 主な機能のページ遷移を管理するアクティビティ
+ * dkkommit
  * Created by kyokn on 2016/10/31.
  */
 
