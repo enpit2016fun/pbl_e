@@ -16,6 +16,7 @@ public class FriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //レイアウトの設定
+        //佐々木の足跡
         setContentView(R.layout.activity_friend);
 
         manager = getSupportFragmentManager();
