@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setCheckedItem(navigationResources[position]);
     }
 
-    //こいつも動きません..
+    //こいつも動きません...
     @Override
     public void onPageScrollStateChanged(int state) {
 
