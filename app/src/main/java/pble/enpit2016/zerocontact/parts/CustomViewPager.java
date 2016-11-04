@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
+ * 画面のスクロールをきんしするために作成した独自のViewPager
  * Created by kyokn on 2016/11/01.
  */
 
@@ -18,6 +19,7 @@ public class CustomViewPager extends ViewPager {
         super(context, attrs);
     }
 
+    //常にfalseを返すことでスクロールを禁止する
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return false;
