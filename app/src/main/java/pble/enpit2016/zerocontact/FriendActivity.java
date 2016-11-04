@@ -23,7 +23,7 @@ public class FriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //レイアウトの設定
-        //佐々木の足跡---もう一回追加--author名を変更してみました
+        //佐々木の足跡---もう一回追加--author名を変更
         setContentView(R.layout.activity_friend);
 
         //マネージャの取得
