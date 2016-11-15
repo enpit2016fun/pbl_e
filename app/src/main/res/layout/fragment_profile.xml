@@ -74,11 +74,10 @@
                             android:text="名前" />
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/friend_name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="2.33"
-                            android:text="県大 太郎" />
+                            android:layout_weight="2.33" />
 
                     </LinearLayout>
 

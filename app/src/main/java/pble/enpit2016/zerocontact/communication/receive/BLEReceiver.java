@@ -30,7 +30,7 @@ public class BLEReceiver implements BluetoothAdapter.LeScanCallback {
         void execute(String id, int rssi);
     }
 
-    public void startLescan() {
+    public void startLeScan() {
         if (adapter != null && !isScanning) {
             adapter.startLeScan(this);
         }
@@ -72,9 +72,13 @@ public class BLEReceiver implements BluetoothAdapter.LeScanCallback {
         return hex_str.toUpperCase();
     }
 
+    private boolean isTargetUuid(byte[] newScanRecord) {
+        return true;
+    }
+
     @Override
     public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
-//        if (!isIbeacon(scanRecord)) return;
-        this.callback.execute(scanRecordToUuid(scanRecord) + scanRecordToMajor(scanRecord) + scanRecordToMinor(scanRecord), rssi);
+        if (!isIbeacon(scanRecord)) return;
+        this.callback.execute(scanRecordToMinor(scanRecord), rssi);
     }
 }
