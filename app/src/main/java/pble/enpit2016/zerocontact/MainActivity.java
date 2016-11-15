@@ -8,24 +8,22 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 import pble.enpit2016.zerocontact.communication.CommunicationService;
-import pble.enpit2016.zerocontact.fragment.NearFragment;
 import pble.enpit2016.zerocontact.parts.CustomViewPager;
 import pble.enpit2016.zerocontact.parts.PagerAdapter;
 
 /**
  * 主な機能のページ遷移を管理するアクティビティ
+ * dkkommit
  * Created by kyokn on 2016/10/31.
  */
 
@@ -42,13 +40,14 @@ public class MainActivity extends AppCompatActivity
     /**
      * タブレイアウトで用いるテキストのリソース
      */
-    private int[] textResources = {R.string.text_near_friends, R.string.text_favorite, R.string.text_my_profile};
+    private int[] textResources = {R.string.text_near_friends, R.string.text_favorite,
+            R.string.text_my_profile, R.string.text_settings};
 
     /**
      * タブレイアウトで用いる画像のリソース
      */
     private int[] imageResources = {R.drawable.ic_face, R.drawable.ic_favorite,
-            R.drawable.ic_account_circle};
+            R.drawable.ic_account_circle, R.drawable.ic_settings};
 
     /**
      * 画面下のタブを管理する変数
@@ -60,14 +59,10 @@ public class MainActivity extends AppCompatActivity
      */
     private CustomViewPager viewPager;
 
-    private PagerAdapter adapter;
-
     /**
      * ナビゲーションバー（左からでてくるやつ）を管理する変数
      */
     private NavigationView navigationView;
-
-    private ScheduledExecutorService schedule;
 
     /**
      * 近距離無線通信（BLE関係）の変数
@@ -78,22 +73,42 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         //各レイアウトを初期化
+        initFloatActionButton();
+        initDrawerLayout(toolbar);
         initNavigationView();
         initTabLayout();
 
-        communicationService = new CommunicationService(this);
+
         //エミュだと動かない可能性があるのでBLE周りはコメントアウト
+//        communicationService = new CommunicationService(this);
 //        communicationService.startReceive();
 //        communicationService.startTransmit();
-
-        //タイマー
-        schedule = Executors.newSingleThreadScheduledExecutor();
-        //Updaterクラスを5000ms後に3000ms周期で実行する
-        schedule.scheduleAtFixedRate(new Updater(), 5000, 3000, TimeUnit.MILLISECONDS);
     }
 
+    //フロートアクションボタン（画面右上にいるピンクのボタン）を初期化するメソッド
+    private void initFloatActionButton() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "一言コメントのポスト機能でもつけたらいいんじゃないかな", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+    }
+
+    //ナビゲーションビューを描画するメソッド
+    private void initDrawerLayout(Toolbar toolbar) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+    }
 
     //ナビゲーションッビューを初期化するメソッド
     private void initNavigationView() {
@@ -120,7 +135,7 @@ public class MainActivity extends AppCompatActivity
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (CustomViewPager) findViewById(R.id.view_pager);
         viewPager.setOnPageChangeListener(this);
-        adapter = new PagerAdapter(getSupportFragmentManager());
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(adapter);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
@@ -163,6 +178,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    //こいつは呼ばれません
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -174,24 +190,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setCheckedItem(navigationResources[position]);
     }
 
+    //こいつも動きません
     @Override
     public void onPageScrollStateChanged(int state) {
 
     }
-
-    class Updater implements Runnable {
-        @Override
-        public void run() {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    //NearFragmentを取得
-                    NearFragment fragment = (NearFragment) adapter.findFragmentByPosition(viewPager, 0);
-                    //NearFragmentのupdate変数を実行
-                    fragment.update(communicationService.getUserMap());
-                }
-            });
-        }
-    }
-
 }
