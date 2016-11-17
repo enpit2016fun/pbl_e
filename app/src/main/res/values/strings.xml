@@ -40,10 +40,29 @@
         <item>Yamada Hogehoge</item>
         <item>Kato Hugahuga</item>
     </string-array>
-    <string-array name="sort_list">
-        <item>名前</item>
-        <item>国籍</item>
-        <item>出身</item>
+    <!--ソートに使うリスト-->
+    <string-array name="sort_time">
+        <item>時間</item>
+        <item>時間が近い順</item>
+        <item>時間が遅い順</item>
+    </string-array>
+    <string-array name="sort_hobby">
         <item>趣味</item>
+        <item>スポーツ</item>
+        <item>音楽</item>
+        <item>映画</item>
+        <item>料理</item>
+        <item>ゲーム</item>
+    </string-array>
+    <string-array name="sort_country">
+        <item>国籍</item>
+        <item>日本</item>
+        <item>ネパール</item>
+        <item>ラオス</item>
+    </string-array>
+    <string-array name="sort_graduate">
+        <item>出身</item>
+        <item>ここどうしようかな</item>
     </string-array>
 </resources>
+

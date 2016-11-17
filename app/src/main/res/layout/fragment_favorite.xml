@@ -19,34 +19,54 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="55dp"
             android:orientation="vertical"
             android:weightSum="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1">
+
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="56dp"
+                <!-- res/values/string.xmlにある-->
+                <!-- ソートのためのプルダウン -->
+                <Spinner
+                    android:layout_width="97dp"
                     android:layout_height="wrap_content"
-                    android:text="ソート" />
+                    android:entries="@array/sort_time"
+                    android:layout_weight="0.11" />
 
                 <Spinner
-                    android:id="@+id/spinner"
                     android:layout_width="wrap_content"
-                    android:layout_height="54dp"
-                    android:layout_weight="1"
-                    android:entries="@array/sort_list" />
+                    android:layout_height="wrap_content"
+                    android:entries="@array/sort_hobby" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:weightSum="1">
+
+                <Spinner
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/sort_graduate"
+                    android:layout_weight="0.09" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/sort_country" />
             </LinearLayout>
 
         </LinearLayout>
@@ -66,7 +86,7 @@
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="3.76"
+                    android:layout_weight="1"
                     app:srcCompat="@android:drawable/star_on" />
 
                 <TextView
