@@ -87,7 +87,7 @@
                     android:layout_height="60dp"
                     android:id="@+id/textView4"
                     android:text="5㌔くらい痩せた\nもっと痩せたい"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="24sp"/>
             </LinearLayout>
 
