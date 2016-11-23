@@ -27,6 +27,7 @@ import pble.enpit2016.zerocontact.parts.PagerAdapter;
 /**
  * 主な機能のページ遷移を管理するアクティビティ
  * Created by kyokn on 2016/10/31.
+ * 確認　山田
  */
 
 public class MainActivity extends AppCompatActivity
@@ -174,6 +175,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setCheckedItem(navigationResources[position]);
     }
 
+    //こいつも動きません....
     @Override
     public void onPageScrollStateChanged(int state) {
 
