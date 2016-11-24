@@ -43,7 +43,7 @@
                 android:id="@+id/spinner"
                 android:entries="@array/sort_list" />
 
-            <TextView
+            <Button
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

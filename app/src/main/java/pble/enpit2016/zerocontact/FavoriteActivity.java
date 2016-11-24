@@ -1,33 +1,62 @@
 package pble.enpit2016.zerocontact;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.support.v4.app.FragmentActivity;
-        import android.support.v4.app.FragmentTransaction;
-        import android.support.v7.app.AppCompatActivity;
+import pble.enpit2016.zerocontact.fragment.FavoriteFragment;
+import pble.enpit2016.zerocontact.fragment.FavoriteFragmentDetail;
+import pble.enpit2016.zerocontact.fragment.FriendFragment;
+import pble.enpit2016.zerocontact.fragment.ProfileFragment;
 
-        import pble.enpit2016.zerocontact.fragment.FavoriteFragment;
-
+/**
+ * 友達の詳細情報を表示するアクティビティ（fragmentを使う画面遷移はここを参考にすると分かりやすいです）
+ * Created by kyokn on 2016/10/31.
+ */
 public class FavoriteActivity extends AppCompatActivity {
 
+    /**
+     * フラグメントマネージャ
+     */
+    private FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_favorite);
+
+        //レイアウトの設定
+        setContentView(R.layout.activity_favorite);
+
+        //マネージャの取得
+        manager = getSupportFragmentManager();
+
+        Intent intent = getIntent();
+        String key = intent.getStringExtra("key");
 
         if (savedInstanceState == null) {
-            FavoriteFragment fragment = new FavoriteFragment();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.fragment_container, fragment).commit();
+            //フラグメントトランザクションの取得
+            FragmentTransaction transaction = manager.beginTransaction();
+            //フラグメントをインスタンス化
+            FavoriteFragmentDetail fragment = new FavoriteFragmentDetail();
+            //フラグメントに値を渡したいときの記述方法
+            Bundle bundle = new Bundle();
+            //String型のkey変数をid"key"で設定
+            bundle.putString("key", key);
+            //fragmentにbundleを設定
+            fragment.setArguments(bundle);
+            //fragment_containerレイアウトをProfileFragmentにリプレイス
+            transaction.replace(R.id.fragment_container, fragment, FavoriteFragment.class.getName());
+
+            //コミットするとreplaceで設定したページに飛ぶ
+            transaction.commit();
         }
 
     }
-    public void changeFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.text_seach, fragment);
-        transaction.commit();
-    }
+
+
+
 }
