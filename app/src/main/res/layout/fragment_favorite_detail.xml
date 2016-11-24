@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="10dp"
+    android:background="#f0f8ff">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp">
+
+
+
+            <Spinner
+                android:layout_width="500dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="30dp"
+                android:background="#ffffff"
+                android:popupBackground="#ffffff"
+                android:id="@+id/spinner1"
+                android:entries="@array/favorite_list1" />
+            <Space android:layout_width="match_parent"
+                android:layout_height="25dip"/>
+
+            <Spinner
+                android:layout_width="500dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="30dp"
+                android:background="#ffffff"
+                android:popupBackground="#ffffff"
+                android:id="@+id/spinner2"
+                android:entries="@array/favorite_list2" />
+            <Space android:layout_width="match_parent"
+                android:layout_height="25dip"/>
+
+            <Spinner
+                android:layout_width="500dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="30dp"
+                android:background="#ffffff"
+                android:popupBackground="#ffffff"
+                android:id="@+id/spinner3"
+                android:entries="@array/favorite_list2" />
+        <Space android:layout_width="match_parent"
+            android:layout_height="25dip"/>
+
+        <Spinner
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:background="#ffffff"
+            android:popupBackground="#ffffff"
+            android:id="@+id/spinner4"
+            android:entries="@array/sort_list" />
+        <Space android:layout_width="match_parent"
+            android:layout_height="25dip"/>
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        >
+
+        <Button
+
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/search_button"
+            android:text="検索"
+            android:textSize="20dp"/>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/return_button"
+            android:text="キャンセル"
+            android:textSize="20dp"/>
+    </LinearLayout>
+</LinearLayout>
+</RelativeLayout>
+
+
