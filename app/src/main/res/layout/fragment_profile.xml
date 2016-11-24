@@ -7,52 +7,95 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="100dp">
+    android:paddingTop="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/header_profile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="プロフィール表示画面"
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="116dp"
-            android:orientation="horizontal">
+            android:layout_height="259dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="122dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@mipmap/ic_launcher" />
+                android:layout_width="wrap_content"
+                android:layout_height="241dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="0.73"
+                app:srcCompat="@drawable/user_sample_osanai" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="188dp"
+                android:layout_height="244dp"
+                android:layout_weight="0.08"
+                android:orientation="vertical"
+                android:weightSum="1">
 
-                <TextView
-                    android:id="@+id/textView16"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.00"
-                    android:text="一言コメント　映画と旅行が大好きです．" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="New"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="30sp"
+                        android:textStyle="normal|bold|italic"
+                        android:typeface="serif" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contact"
+                        android:textSize="24sp" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="match_parent"
+                    android:id="@+id/textView5"
+                    android:layout_width="236dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="あなたに会うのは初めてです．" />
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="20dp"
+                    android:text="長内一真"
+                    android:textAlignment="textStart"
+                    android:textSize="36sp" />
 
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="209dp"
+                    android:layout_height="60dp"
+                    android:text="5㌔くらい痩せた\nもっと痩せたい"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp" />
             </LinearLayout>
 
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="253dp">
+            android:layout_height="match_parent">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -60,6 +103,143 @@
 
                 <TableRow
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:breakStrategy="balanced"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:text="基本情報"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="性別"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="男"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="年齢"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="22歳"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="誕生日"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="12月12日"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="国籍"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="日本"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <LinearLayout
@@ -68,44 +248,70 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:text="名前" />
+                            android:id="@+id/textView25"
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="20dp"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="20dp"
+                            android:text="出身"
+                            android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/friend_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2.33" />
-
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="青森県"
+                            android:textSize="24sp" />
                     </LinearLayout>
-
                 </TableRow>
 
                 <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="職業"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="大学生"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/colorPrimary">
+
+                    <TextView
+                        android:id="@+id/textView28"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:layout_weight="0.00"
-                            android:text="国籍" />
-
-                        <TextView
-                            android:id="@+id/textView12"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="日本" />
-
-                    </LinearLayout>
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:text="趣味や好きなこと"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
                 </TableRow>
 
                 <TableRow
@@ -115,82 +321,88 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
 
                         <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:text="出身" />
+                            android:id="@+id/textView30"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="音楽"
+                            android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/textView13"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="うえすとゔぁーじにあ州" />
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView10"
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:text="趣味" />
-
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.62"
-                            android:text="動画鑑賞" />
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView22"
-                            android:layout_width="80dp"
-                            android:layout_height="148dp"
-                            android:layout_weight="0.01"
-                            android:text="確認用" />
-
-                        <TextView
-                            android:id="@+id/textView21"
+                            android:id="@+id/textView29"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="バーーー" />
-
+                            android:text="Spitz, aiko, back number"
+                            android:textSize="24sp" />
                     </LinearLayout>
+                </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView32"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="スポーツ"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="野球, サッカー, バスケ"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView34"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="映画"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Back To The Future, Star Wars"
+                            android:textSize="24sp" />
+                    </LinearLayout>
                 </TableRow>
             </TableLayout>
         </ScrollView>
 
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:text="ビーコンスペース（仮）" />
-
     </LinearLayout>
+
 </RelativeLayout>
