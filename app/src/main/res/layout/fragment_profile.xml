@@ -10,85 +10,85 @@
     android:paddingTop="20dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:text="プロフィール表示画面"
+            android:id="@+id/header_profile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/header_profile"
+            android:text="プロフィール表示画面"
             android:textSize="30sp" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="259dp"
-            android:weightSum="1"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp">
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="241dp"
-                app:srcCompat="@drawable/user_sample_osanai"
-                android:id="@+id/imageView3"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="0.73" />
+                android:layout_weight="0.73"
+                app:srcCompat="@drawable/user_sample_osanai" />
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="188dp"
                 android:layout_height="244dp"
-                android:weightSum="1"
-                android:layout_weight="0.08">
+                android:layout_weight="0.08"
+                android:orientation="vertical"
+                android:weightSum="1">
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:text="New"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/textView6"
-                        android:textSize="30sp"
-                        android:fontFamily="serif"
-                        android:typeface="serif"
-                        android:textColor="@android:color/holo_red_light"
-                        android:textStyle="normal|bold|italic" />
-
-                    <TextView
-                        android:text="Contact"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="New"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="30sp"
+                        android:textStyle="normal|bold|italic"
+                        android:typeface="serif" />
+
+                    <TextView
                         android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contact"
                         android:textSize="24sp" />
                 </LinearLayout>
 
                 <TextView
-                    android:text="長内一真"
+                    android:id="@+id/textView5"
                     android:layout_width="236dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView5"
-                    android:textSize="36sp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="30dp"
                     android:paddingTop="20dp"
-                    android:paddingBottom="30dp"/>
+                    android:text="長内一真"
+                    android:textAlignment="textStart"
+                    android:textSize="36sp" />
 
                 <TextView
+                    android:id="@+id/textView4"
                     android:layout_width="209dp"
                     android:layout_height="60dp"
-                    android:id="@+id/textView4"
                     android:text="5㌔くらい痩せた\nもっと痩せたい"
                     android:textAlignment="textStart"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -107,297 +107,297 @@
                     android:background="@color/colorPrimary">
 
                     <TextView
-                        android:text="基本情報"
+                        android:id="@+id/textView15"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView15"
                         android:background="@android:color/transparent"
                         android:breakStrategy="balanced"
-                        android:textColor="@android:color/white"
-                        android:textSize="24sp"
-                        android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:paddingLeft="20dp"/>
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:text="基本情報"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
 
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingTop="20dp"
+                        android:orientation="horizontal"
                         android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
 
                         <TextView
-                            android:text="性別"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
                             android:id="@+id/textView11"
-                            android:textSize="20sp"/>
-
-                        <TextView
-                            android:text="男"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView14"
-                            android:textSize="24sp"/>
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
-
-                        <TextView
-                            android:text="年齢"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView17"
-                            android:textSize="20sp"/>
-
-                        <TextView
-                            android:text="22歳"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView16"
-                            android:layout_weight="1"
-                            android:textSize="24sp"/>
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
-
-                        <TextView
-                            android:text="誕生日"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView19"
+                            android:text="性別"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:text="12月12日"
+                            android:id="@+id/textView14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView18"
+                            android:text="男"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="年齢"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textSize="24sp"/>
+                            android:text="22歳"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="誕生日"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="12月12日"
+                            android:textSize="24sp" />
                     </LinearLayout>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
-                        android:paddingTop="20dp"
+                        android:orientation="horizontal"
                         android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
 
                         <TextView
-                            android:text="国籍"
+                            android:id="@+id/textView23"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView23"
+                            android:text="国籍"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:text="日本"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/textView20"
-                            android:layout_weight="1"
-                            android:textSize="24sp"/>
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:text="出身"
-                            android:layout_width="170dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView25"
-                            android:textSize="20sp"
-                            android:paddingTop="20dp"
-                            android:paddingBottom="20dp"
-                            android:paddingLeft="20dp"/>
-
-                        <TextView
-                            android:text="青森県"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView24"
                             android:layout_weight="1"
-                            android:textSize="24sp"/>
+                            android:text="日本"
+                            android:textSize="24sp" />
                     </LinearLayout>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:text="職業"
-                            android:layout_width="150dp"
+                            android:id="@+id/textView25"
+                            android:layout_width="170dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView27"
+                            android:paddingBottom="20dp"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="20dp"
+                            android:text="出身"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:text="大学生"
+                            android:id="@+id/textView24"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView26"
                             android:layout_weight="1"
-                            android:textSize="24sp"/>
+                            android:text="青森県"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="職業"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="大学生"
+                            android:textSize="24sp" />
                     </LinearLayout>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:layout_marginTop="30dp">
+                    android:layout_marginTop="30dp"
+                    android:background="@color/colorPrimary">
 
                     <TextView
-                        android:text="趣味や好きなこと"
+                        android:id="@+id/textView28"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView28"
-                        android:textColor="@android:color/white"
-                        android:textSize="24sp"
-                        android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:paddingLeft="20dp"/>
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:text="趣味や好きなこと"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingTop="20dp"
+                        android:orientation="horizontal"
                         android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
 
                         <TextView
-                            android:text="音楽"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
                             android:id="@+id/textView30"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="音楽"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:text="Spitz, aiko, back number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/textView29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textSize="24sp"/>
+                            android:text="Spitz, aiko, back number"
+                            android:textSize="24sp" />
                     </LinearLayout>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingTop="20dp"
+                        android:orientation="horizontal"
                         android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
 
                         <TextView
-                            android:text="スポーツ"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
                             android:id="@+id/textView32"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="スポーツ"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:text="野球, サッカー, バスケ"
+                            android:id="@+id/textView31"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView31"
                             android:layout_weight="1"
-                            android:textSize="24sp"/>
+                            android:text="野球, サッカー, バスケ"
+                            android:textSize="24sp" />
                     </LinearLayout>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingTop="20dp"
+                        android:orientation="horizontal"
                         android:paddingBottom="20dp"
-                        android:paddingLeft="20dp">
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp">
 
                         <TextView
-                            android:text="映画"
+                            android:id="@+id/textView34"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView34"
+                            android:text="映画"
                             android:textSize="20sp" />
 
                         <TextView
-                            android:text="Back To The Future, Star Wars"
+                            android:id="@+id/textView33"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView33"
                             android:layout_weight="1"
-                            android:textSize="24sp"/>
+                            android:text="Back To The Future, Star Wars"
+                            android:textSize="24sp" />
                     </LinearLayout>
                 </TableRow>
             </TableLayout>

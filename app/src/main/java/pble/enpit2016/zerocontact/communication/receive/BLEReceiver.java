@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.util.Log;
 
 import static android.bluetooth.BluetoothDevice.ACTION_FOUND;
 
@@ -67,7 +68,7 @@ public class BLEReceiver implements BluetoothAdapter.LeScanCallback {
     }
 
     private String IntToHex(int i) {
-        char hex[] = {Character.forDigit((i >> 4) & 0x0f, 16), Character.forDigit(i & 0x0f, 16)};
+        char hex[] = {Character.forDigit((i >> 4) & 0x0f, 10), Character.forDigit(i & 0x0f, 10)};
         String hex_str = new String(hex);
         return hex_str.toUpperCase();
     }
@@ -79,6 +80,10 @@ public class BLEReceiver implements BluetoothAdapter.LeScanCallback {
     @Override
     public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
         if (!isIbeacon(scanRecord)) return;
-        this.callback.execute(scanRecordToMinor(scanRecord), rssi);
+        this.callback.execute(toIntegerStr(scanRecordToMinor(scanRecord)), rssi);
+    }
+
+    private String toIntegerStr(String value) {
+        return String.valueOf(Integer.parseInt(value));
     }
 }
