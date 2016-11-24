@@ -15,22 +15,6 @@
         android:layout_marginBottom="20dp"
         android:layout_marginTop="8dp" />
 
-    <TextView
-        android:id="@+id/tab_badge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tab_icon"
-        android:layout_marginLeft="-3dp"
-        android:layout_marginTop="0dp"
-        android:layout_toRightOf="@+id/tab_icon"
-        android:paddingBottom="2dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="2dp"
-        android:textColor="@android:color/white"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tab_text"

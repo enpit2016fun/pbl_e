@@ -10,6 +10,10 @@
     <string name="text_my_profile">my profile</string>
     <string name="text_settings">settings</string>
 
+    <string name="user_name_text">名前</string>
+    <string name="user_hobby_text">趣味</string>
+    <string name="user_comment_text">一言コメント</string>
+    <string name="user_detail_button_text">さんをもっと見る</string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_friend">FriendActivity</string>
@@ -50,5 +54,12 @@
         <item>日時順</item>
         <item>会った回数順</item>
     </string-array>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string-array name="distance_array">
+        <item>Immediate</item>
+        <item>Near</item>
+        <item>Far</item>
+    </string-array>
+
 </resources>
 
