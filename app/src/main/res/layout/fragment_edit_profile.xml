@@ -7,7 +7,7 @@
     android:paddingBottom="20dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="64dp"
+    android:paddingTop="32dp"
     android:background="@android:color/white">
 
 
@@ -21,8 +21,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="8">
+            android:layout_height="657dp">
 
 
             <TableLayout
@@ -41,9 +40,8 @@
 
                         <TextView
                             android:id="@+id/title_profile_edit"
-                            android:layout_width="match_parent"
+                            android:layout_width="566dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:background="@drawable/profile_frame_style"
                             android:textColor="#FFFFFF"
                             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -98,7 +96,7 @@
                                 android:background="@drawable/profile_tweet_textbox"
                                 android:rotation="45" />
                             <EditText
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginTop="-42dp"
                                 android:layout_marginLeft="11dp"
