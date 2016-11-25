@@ -74,8 +74,6 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_near, container, false);
-        getActivity().setTitle(R.string.text_near_friends);
-
         initSpinner();
         childLayout = (RelativeLayout) view.findViewById(R.id.friends);
         getParentSize(view);
