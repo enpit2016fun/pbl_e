@@ -1,4 +1,4 @@
-package pble.enpit2016.zerocontact.listview;
+package pble.enpit2016.zerocontact.parts;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -32,11 +33,15 @@ public class UserListViewAdapter extends ArrayAdapter<Icon>{
             convertView = inflater.inflate(R.layout.listview_row, null);
         }
 
+        ImageView image = (ImageView) convertView.findViewById(R.id.image_user) ;
+        image.setImageResource(icon.getImage());
+
         TextView id = (TextView) convertView.findViewById(R.id.id_view);
         id.setText(icon.getName());
 
         TextView name = (TextView) convertView.findViewById(R.id.name_view);
-        name.setText(icon.getHobby());
+        name.setText(icon.getComment());
+        //name.setText(icon.getHobby());
 
         return convertView;
     }

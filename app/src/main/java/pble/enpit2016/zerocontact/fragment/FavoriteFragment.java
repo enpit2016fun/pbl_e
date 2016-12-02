@@ -22,7 +22,7 @@ import java.util.Map;
 import pble.enpit2016.zerocontact.R;
 import pble.enpit2016.zerocontact.data.IconMap;
 import pble.enpit2016.zerocontact.parts.Icon;
-import pble.enpit2016.zerocontact.listview.UserListViewAdapter;
+import pble.enpit2016.zerocontact.parts.UserListViewAdapter;
 
 /**
  * 一回あった人（ファボした人）を表示する画面のフラグメント

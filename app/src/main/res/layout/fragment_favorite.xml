@@ -9,7 +9,7 @@
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="10dp">
+    android:paddingTop="70dp">
 
 
     <LinearLayout
