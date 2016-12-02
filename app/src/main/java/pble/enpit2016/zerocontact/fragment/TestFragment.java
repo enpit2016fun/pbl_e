@@ -20,20 +20,14 @@ public class TestFragment extends Fragment {
 
     }
 
-    public static TestFragment newInstance(int page) {
-        Bundle args = new Bundle();
-        args.putInt("page", page);
+    public static TestFragment newInstance() {
         TestFragment fragment = new TestFragment();
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        int page = getArguments().getInt("page", 0);
-        View view = inflater.inflate(R.layout.fragment_test, container, false);
-        ((TextView) view.findViewById(R.id.page_text)).setText("Page " + page);
-        return view;
+        return inflater.inflate(R.layout.fragment_test, container, false);
     }
 }

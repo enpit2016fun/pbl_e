@@ -1,25 +1,34 @@
 package pble.enpit2016.zerocontact.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
+import android.widget.AdapterView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import pble.enpit2016.zerocontact.FriendActivity;
 import pble.enpit2016.zerocontact.R;
 import pble.enpit2016.zerocontact.communication.receive.Signal;
+import pble.enpit2016.zerocontact.data.IconMap;
 import pble.enpit2016.zerocontact.parts.Icon;
+import pble.enpit2016.zerocontact.parts.UserDetailView;
+import pble.enpit2016.zerocontact.parts.UserView;
+
+import static android.R.attr.animation;
 
 /**
  * 近い人を表示する画面のフラグメント
@@ -28,39 +37,32 @@ import pble.enpit2016.zerocontact.parts.Icon;
 
 public class NearFragment extends Fragment implements View.OnClickListener {
 
-    /**
-     * 親要素の縦横サイズ
-     */
     private int width, height;
 
-    /**
-     * フラグメントのビュー
-     */
     private View view;
 
-    /**
-     * 初期に表示する友達のiconサイズ
-     */
-    private int friendSize = 400;
+    private int friendSize = 300;
 
-    /**
-     * iconを保持するリスト
-     */
     private HashMap<String, Icon> iconMap = new HashMap<>();
+
+    private RelativeLayout childLayout;
+
+    private IconMap iconDataMap = new IconMap();
+
+    private Integer spinnerPosition = 0;
+
+    private float nowRatio = 1f;
 
     public static NearFragment newInstance() {
         return new NearFragment();
     }
 
-    //Iconの再描画
     @Override
     public void onStart() {
         super.onStart();
-        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.friends);
-        for (Map.Entry<String, Icon> entry : iconMap.entrySet()) {
-            layout.addView(createIconView(entry.getKey(), entry.getValue().getImage()),
-                    createParam(friendSize, friendSize, entry.getValue().getLocation()[0], entry.getValue().getLocation()[1], 0, 0));
-        }
+        AlphaAnimation animation = new AlphaAnimation(0, 1);
+        animation.setDuration(1500);
+        addAllIcon();
     }
 
     @Override
@@ -72,67 +74,102 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_near, container, false);
-
-        //親要素の画面サイズを取得
-        setParentSize(view);
+        initSpinner();
+        childLayout = (RelativeLayout) view.findViewById(R.id.friends);
+        getParentSize(view);
         return view;
     }
 
-    //Iconの生成（今は仮データを生成するようになっています）
-    private Icon createIcon(String id) {
-        switch (id) {
-            case "01":
-                return new Icon("name", "hobby", R.drawable.user_sample_daiki);
-            case "04":
-                return new Icon("name", "hobby", R.drawable.user_sample_sasaki);
-            case "06":
-                return new Icon("name", "hobby", R.drawable.user_sample_osanai);
-            case "07":
-                return new Icon("name", "hobby", R.drawable.user_sample_simiken);
-            case "02":
-                return new Icon("name", "hobby", R.drawable.user_sample_maeken);
-            case "05":
-                return new Icon("name", "hobby", R.drawable.user_sample_inoue);
-            default:
-                return null;
+    private void initSpinner() {
+        final Spinner spinner = (Spinner) (getActivity().findViewById(R.id.spinner));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                ScaleAnimation animation;
+                int differ = position - spinnerPosition;
+                if (differ == -2) {
+                    animation = new ScaleAnimation(nowRatio, nowRatio + 0.5f, nowRatio, nowRatio + 0.5f);
+                    nowRatio += 0.5f;
+                } else if (differ == -1) {
+                    animation = new ScaleAnimation(nowRatio, nowRatio + 0.25f, nowRatio, nowRatio + 0.25f);
+                    nowRatio += 0.25f;
+                } else if (differ == 1) {
+                    animation = new ScaleAnimation(nowRatio, nowRatio - 0.25f, nowRatio, nowRatio - 0.25f);
+                    nowRatio -= 0.25f;
+                } else if (differ == 2) {
+                    animation = new ScaleAnimation(nowRatio, nowRatio - 0.5f, nowRatio, nowRatio - 0.5f);
+                    nowRatio -= 0.5f;
+                } else return;
+
+                animation.setFillAfter(true);
+                animation.setDuration(1500);
+                animate(animation);
+                spinnerPosition = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void addAllIcon() {
+        ScaleAnimation animation = null;
+        if (spinnerPosition != null) {
+            nowRatio = 1f;
+            if (spinnerPosition == 0) {
+                animation = new ScaleAnimation(nowRatio, nowRatio, nowRatio, nowRatio);
+                nowRatio = 1f;
+            } else if (spinnerPosition == 1) {
+                animation = new ScaleAnimation(nowRatio, nowRatio - 0.25f, nowRatio, nowRatio - 0.25f);
+                nowRatio = 0.75f;
+            } else if (spinnerPosition == 2) {
+                animation = new ScaleAnimation(nowRatio, nowRatio - 0.5f, nowRatio, nowRatio - 0.5f);
+                nowRatio = 0.5f;
+            } else return;
+            animation.setFillAfter(true);
+        }
+        if (animation == null) return;
+        for (Map.Entry<String, Icon> entry : iconMap.entrySet()) {
+            UserView userView = createUserView(entry.getKey(), entry.getValue().getName(),
+                    entry.getValue().getName(), entry.getValue().getImage(), friendSize);
+            childLayout.addView(userView, createParam(entry.getValue().getLocation()[0],
+                    entry.getValue().getLocation()[1], 0, 0));
+
+            userView.startAnimation(animation);
         }
     }
 
-    //IconのViewを生成
-    private ImageView createIconView(String id, int image) {
-        ImageView imageView = new ImageView(getActivity());
-        imageView.setId(Integer.parseInt(id));
-        imageView.setImageResource(image);
-        //iconを押したときのリスナーを設定
-        imageView.setOnClickListener(NearFragment.this);
-        //iconに触れたときのリスナーを設定
-        return imageView;
+
+    private UserView createUserView(String id, String name, String hobby, int image, int size) {
+        UserView userView = new UserView(getActivity(), name, hobby, image, size);
+        userView.setId(Integer.parseInt(id));
+        userView.setOnClickListener(NearFragment.this);
+        userView.setCardElevation(20);
+
+        return userView;
     }
 
     //画面上にIconViewを追加
-    private void addIcon(RelativeLayout layout, String id) {
-        //画面サイズからiconの描画位置の候補を作成
+    private void addIcon(String id) {
         int[] location = {((int) (Math.random() * (width - 200 - 100))) + 50
                 , ((int) (Math.random() * (height - 200 - 300))) + 150};
-
-        //Iconの生成
-        Icon icon = createIcon(id);
+        if (!iconDataMap.containsKey(id)) return;
+        Icon icon = iconDataMap.get(id);
         if (icon == null) return;
-        //iconが被らないようにiconの描画位置を再生成
         location = createIconLocation(location);
 
-        //iconに位置を設定
         icon.setLocation(location);
         iconMap.put(id, icon);
 
-        //IconのViewを生成
-        ImageView imageView = createIconView(id, icon.getImage());
+        UserView userView = createUserView(id, icon.getName(), icon.getHobby(), icon.getImage(), friendSize);
 
-        //iconを追加
-        layout.addView(imageView, createParam(friendSize, friendSize, location[0], location[1], 0, 0));
+        childLayout.addView(userView, createParam(location[0], location[1], 0, 0));
         AlphaAnimation animation = new AlphaAnimation(0, 1);
         animation.setDuration(1500);
-        imageView.startAnimation(animation);
+        userView.startAnimation(animation);
     }
 
     //再帰関数でiconの位置が重複しないようlocationを計算（バグ有）
@@ -151,24 +188,27 @@ public class NearFragment extends Fragment implements View.OnClickListener {
         return location;
     }
 
+    private void animate(Animation animation) {
+        for (Map.Entry<String, Icon> i : iconMap.entrySet()) {
+            view.findViewById(Integer.parseInt(i.getKey())).startAnimation(animation);
+        }
+    }
+
     //渡されたidのIconを削除
     private void removeIcon(String id) {
         iconMap.remove(id);
-        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.friends);
-        layout.removeView(view.findViewById(Integer.parseInt(id)));
+        childLayout.removeView(view.findViewById(Integer.parseInt(id)));
     }
 
     //友達を全員破棄
     private void removeAllIcon() {
-        iconMap.clear();
-        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.friends);
         for (Map.Entry<String, Icon> i : iconMap.entrySet()) {
-            layout.removeView(view.findViewById(Integer.parseInt(i.getKey())));
+            childLayout.removeView(view.findViewById(Integer.parseInt(i.getKey())));
         }
     }
 
     //レイアウト設定直後だと縦横サイズが取れないのでViewtreeObserverを使用
-    private void setParentSize(final View view) {
+    private void getParentSize(final View view) {
         ViewTreeObserver observer = view.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -181,6 +221,13 @@ public class NearFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    private RelativeLayout.LayoutParams createParam(int l, int t, int r, int b) {
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(l, t, r, b);
+        return params;
+    }
+
     //追加するレイアウトのパラムを作成[width,height,left,top,right,bottom]
     private RelativeLayout.LayoutParams createParam(int w, int h, int l, int t, int r, int b) {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(w, h);
@@ -191,18 +238,25 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     //iconをクリックした時に呼ばれる関数
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getActivity(), FriendActivity.class);
-        intent.putExtra("key", String.valueOf(v.getId()));
-        startActivity(intent);
+        //クリックしたビューの位置からでっかくしたユーザビュー作って表示する
+        //適当な箇所クリックしたら戻る
+        if (!iconDataMap.containsKey(String.valueOf(v.getId()))) return;
+        Icon icon = iconDataMap.get(String.valueOf(v.getId()));
+        UserDetailView userView = new UserDetailView(getActivity(), icon.getName(), icon.getHobby(),
+                icon.getComment(), icon.getImage());
+        userView.setCardElevation(20);
+
+        new AlertDialog.Builder(getActivity())
+                .setView(userView)
+                .show();
     }
 
     //画面上のIconのViewを更新
     public void update(Map<String, Signal> userMap) {
         if (userMap.size() == 0) return;
-        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.friends);
         //iconの追加
         for (Map.Entry<String, Signal> entry : userMap.entrySet()) {
-            if (!iconMap.containsKey(entry.getKey())) addIcon(layout, entry.getKey());
+            if (!iconMap.containsKey(entry.getKey())) addIcon(entry.getKey());
         }
         //iconの削除
         ArrayList<String> delList = new ArrayList<>();
@@ -213,5 +267,6 @@ public class NearFragment extends Fragment implements View.OnClickListener {
             removeIcon(s);
         }
     }
+
 }
 

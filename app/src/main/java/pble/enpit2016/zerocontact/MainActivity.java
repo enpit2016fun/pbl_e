@@ -2,19 +2,29 @@ package pble.enpit2016.zerocontact;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -24,9 +34,12 @@ import pble.enpit2016.zerocontact.fragment.NearFragment;
 import pble.enpit2016.zerocontact.parts.CustomViewPager;
 import pble.enpit2016.zerocontact.parts.PagerAdapter;
 
+import static android.R.id.toggle;
+
 /**
  * 主な機能のページ遷移を管理するアクティビティ
  * Created by kyokn on 2016/10/31.
+ * 確認　山田
  */
 
 public class MainActivity extends AppCompatActivity
@@ -42,13 +55,14 @@ public class MainActivity extends AppCompatActivity
     /**
      * タブレイアウトで用いるテキストのリソース
      */
-    private int[] textResources = {R.string.text_near_friends, R.string.text_favorite, R.string.text_my_profile};
+    private int[] textResources = {R.string.text_near_friends, R.string.text_favorite, R.string.text_my_profile
+            , R.string.text_settings};
 
     /**
      * タブレイアウトで用いる画像のリソース
      */
     private int[] imageResources = {R.drawable.ic_face, R.drawable.ic_favorite,
-            R.drawable.ic_account_circle};
+            R.drawable.ic_account_circle, R.drawable.ic_settings};
 
     /**
      * 画面下のタブを管理する変数
@@ -74,18 +88,25 @@ public class MainActivity extends AppCompatActivity
      */
     private CommunicationService communicationService;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         //各レイアウトを初期化
+        initDrawerLayout(toolbar);
         initNavigationView();
+        initSpinner();
         initTabLayout();
 
         communicationService = new CommunicationService(this);
         //エミュだと動かない可能性があるのでBLE周りはコメントアウト
-//        communicationService.startReceive();
+        communicationService.startReceive();
 //        communicationService.startTransmit();
 
         //タイマー
@@ -94,6 +115,21 @@ public class MainActivity extends AppCompatActivity
         schedule.scheduleAtFixedRate(new Updater(), 5000, 3000, TimeUnit.MILLISECONDS);
     }
 
+    private void initSpinner() {
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.distance_array, R.layout.spinner_item_layout);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
+    private void initDrawerLayout(Toolbar toolbar) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+    }
 
     //ナビゲーションッビューを初期化するメソッド
     private void initNavigationView() {
@@ -171,9 +207,17 @@ public class MainActivity extends AppCompatActivity
     //タブ押したときの挙動
     @Override
     public void onPageSelected(int position) {
+        if (position == 0) {
+            setTitle(R.string.title_near_friends_text);
+        } else if (position == 1) {
+            setTitle(R.string.title_favorite_text);
+        } else if (position == 2) {
+            setTitle(R.string.title_profile_text);
+        }
         navigationView.setCheckedItem(navigationResources[position]);
     }
 
+    //こいつも動きません....
     @Override
     public void onPageScrollStateChanged(int state) {
 
