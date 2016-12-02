@@ -59,11 +59,31 @@
         <item>日時順</item>
         <item>会った回数順</item>
     </string-array>
+
+    <string-array name="favorite_list1">
+        <item>趣味</item>
+        <item>スポーツ</item>
+        <item>映画鑑賞</item>
+        <item>音楽</item>
+        <item>アニメ</item>
+        <item>読書</item>
+        <item>将棋</item>
+    </string-array>
+
+    <string-array name="favorite_list2">
+        <item>出会った場所</item>
+        <item>学会</item>
+        <item>授業</item>
+        <item>スポーツ観戦</item>
+        <item>合コン</item>
+    </string-array>
+
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string-array name="distance_array">
         <item>Immediate</item>
         <item>Near</item>
         <item>Far</item>
+
     </string-array>
 
 </resources>
