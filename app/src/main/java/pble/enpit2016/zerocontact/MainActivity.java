@@ -207,6 +207,13 @@ public class MainActivity extends AppCompatActivity
     //タブ押したときの挙動
     @Override
     public void onPageSelected(int position) {
+        if (position == 0) {
+            setTitle(R.string.title_near_friends_text);
+        } else if (position == 1) {
+            setTitle(R.string.title_favorite_text);
+        } else if (position == 2) {
+            setTitle(R.string.title_profile_text);
+        }
         navigationView.setCheckedItem(navigationResources[position]);
     }
 
