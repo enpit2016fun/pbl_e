@@ -9,7 +9,7 @@
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="70dp">
+    android:paddingTop="10dp">
 
 
     <LinearLayout
@@ -88,17 +88,16 @@
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </ListView>
-        <!--
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#ffffff">
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >-->
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -725,8 +724,8 @@
                     </LinearLayout>
                 </TableRow>
             </TableLayout>
+            <!--</LinearLayout>-->
         </ScrollView>
-        -->
 
     </LinearLayout>
 
