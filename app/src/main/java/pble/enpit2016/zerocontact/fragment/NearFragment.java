@@ -1,7 +1,9 @@
 package pble.enpit2016.zerocontact.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -25,6 +27,7 @@ import pble.enpit2016.zerocontact.R;
 import pble.enpit2016.zerocontact.communication.receive.Signal;
 import pble.enpit2016.zerocontact.data.IconMap;
 import pble.enpit2016.zerocontact.parts.Icon;
+import pble.enpit2016.zerocontact.parts.SearchDialog;
 import pble.enpit2016.zerocontact.parts.UserDetailView;
 import pble.enpit2016.zerocontact.parts.UserView;
 
@@ -75,9 +78,38 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_near, container, false);
         initSpinner();
+        initFloatActionButton();
         childLayout = (RelativeLayout) view.findViewById(R.id.friends);
         getParentSize(view);
         return view;
+    }
+
+    private void initFloatActionButton() {
+        final FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final SearchDialog searchDialog = new SearchDialog(getActivity());
+
+                DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        for (Map.Entry<String, Icon> entry : iconMap.entrySet()) {
+                            invisibleIcon(entry.getKey());
+                        }
+
+                        for (Map.Entry<String, Icon> entry : iconMap.entrySet()) {
+                            for (String str : searchDialog.getCheckedItemsList()) {
+                                if (entry.getValue().getHobby().equals(str)) {
+                                    visibleIcon(entry.getKey());
+                                }
+                            }
+                        }
+                    }
+                };
+                searchDialog.showDialog(listener);
+            }
+        });
     }
 
     private void initSpinner() {
@@ -172,9 +204,9 @@ public class NearFragment extends Fragment implements View.OnClickListener {
         userView.startAnimation(animation);
     }
 
-    //再帰関数でiconの位置が重複しないようlocationを計算（バグ有）
+    //再帰関数でiconのlocationを計算（重複しちゃう）
     private int[] createIconLocation(int[] location) {
-        int padding = 400;
+        int padding = 30;
         for (Map.Entry<String, Icon> i : iconMap.entrySet()) {
             if (i.getValue().getLocation()[0] + padding > location[0]
                     && i.getValue().getLocation()[0] - padding < location[0]
@@ -192,6 +224,18 @@ public class NearFragment extends Fragment implements View.OnClickListener {
         for (Map.Entry<String, Icon> i : iconMap.entrySet()) {
             view.findViewById(Integer.parseInt(i.getKey())).startAnimation(animation);
         }
+    }
+
+    private void visibleIcon(String id) {
+        UserView userView = (UserView) childLayout.findViewById(Integer.parseInt(id));
+        userView.clearAnimation();
+        childLayout.findViewById(Integer.parseInt(id)).setVisibility(View.VISIBLE);
+    }
+
+    private void invisibleIcon(String id) {
+        UserView userView = (UserView) childLayout.findViewById(Integer.parseInt(id));
+        userView.clearAnimation();
+        childLayout.findViewById(Integer.parseInt(id)).setVisibility(View.INVISIBLE);
     }
 
     //渡されたidのIconを削除
@@ -238,7 +282,6 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     //iconをクリックした時に呼ばれる関数
     @Override
     public void onClick(View v) {
-        //クリックしたビューの位置からでっかくしたユーザビュー作って表示する
         //適当な箇所クリックしたら戻る
         if (!iconDataMap.containsKey(String.valueOf(v.getId()))) return;
         Icon icon = iconDataMap.get(String.valueOf(v.getId()));

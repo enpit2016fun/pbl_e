@@ -9,7 +9,7 @@
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="10dp">
+    android:paddingTop="60dp">
 
 
     <LinearLayout
@@ -21,8 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
             android:weightSum="1">
 
@@ -33,58 +33,69 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
             -->
-            <Space android:layout_width="20dp"
-                android:layout_height="20dp"/>
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
             <ImageView
-                android:layout_height="50dp"
                 android:layout_width="10dp"
+                android:layout_height="50dp"
                 android:background="#ffffff"
 
                 />
+
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:hint="検索"
-                android:textColorHint="#a9a9a9"
-                android:textColor="#696969"
-                android:background="#ffffff"
-                android:colorControlActivated="#ffffff"
-
-                />
-
-            <ImageButton
-                android:layout_height="50dp"
-                android:layout_width="50dp"
-                android:src="@drawable/ic_search_black_24px"
-                android:background="#4784BF"/>
-            <Space android:layout_width="20dp"
-                android:layout_height="20dp"/>
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:background="#ffffff"
-                android:entries="@array/sort_list" />
-            <ImageButton
-                android:layout_height="50dp"
-                android:layout_width="50dp"
-                android:src="@drawable/ic_sort_black_24px"
-                android:background="#4784BF"/>
-            <Space android:layout_width="20dp"
-                android:layout_height="20dp"/>
-            <Button
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:background="#ffffff"
-                android:id="@+id/text_seach"
-                android:text="詳細検索"
-                android:textSize="18dp"/>
+                android:colorControlActivated="#ffffff"
+                android:hint="検索"
+                android:textColor="#696969"
+                android:textColorHint="#a9a9a9"
+
+                />
+
             <ImageButton
-                android:layout_height="50dp"
                 android:layout_width="50dp"
-                android:src="@drawable/ic_playlist_add_check_black_24px"
-                android:background="#4784BF"/>
+                android:layout_height="50dp"
+                android:background="#4784BF"
+                android:src="@drawable/ic_search_black_24px" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:entries="@array/sort_list" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#4784BF"
+                android:src="@drawable/ic_sort_black_24px" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <Button
+                android:id="@+id/text_seach"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:text="詳細検索"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#4784BF"
+                android:src="@drawable/ic_playlist_add_check_black_24px" />
 
         </LinearLayout>
 
