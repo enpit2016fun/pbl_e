@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -38,13 +39,13 @@ import static android.R.attr.animation;
  * Created by kyokn on 2016/10/31.
  */
 
-public class NearFragment extends Fragment implements View.OnClickListener {
+public class NearFragment extends Fragment implements View.OnClickListener, View.OnTouchListener {
 
     private int width, height;
 
     private View view;
 
-    private int friendSize = 300;
+    private int friendSize = 250;
 
     private HashMap<String, Icon> iconMap = new HashMap<>();
 
@@ -55,6 +56,10 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     private Integer spinnerPosition = 0;
 
     private float nowRatio = 1f;
+
+    private int moveCount = 0;
+
+    private int preDx, preDy, newDx, newDy;
 
     public static NearFragment newInstance() {
         return new NearFragment();
@@ -179,6 +184,7 @@ public class NearFragment extends Fragment implements View.OnClickListener {
         UserView userView = new UserView(getActivity(), name, hobby, image, size);
         userView.setId(Integer.parseInt(id));
         userView.setOnClickListener(NearFragment.this);
+        userView.setOnTouchListener(NearFragment.this);
         userView.setCardElevation(20);
 
         return userView;
@@ -282,7 +288,7 @@ public class NearFragment extends Fragment implements View.OnClickListener {
     //iconをクリックした時に呼ばれる関数
     @Override
     public void onClick(View v) {
-        //適当な箇所クリックしたら戻る
+        if (moveCount >= 6) return;
         if (!iconDataMap.containsKey(String.valueOf(v.getId()))) return;
         Icon icon = iconDataMap.get(String.valueOf(v.getId()));
         UserDetailView userView = new UserDetailView(getActivity(), icon.getName(), icon.getHobby(),
@@ -311,5 +317,26 @@ public class NearFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        newDx = (int) event.getRawX();
+        newDy = (int) event.getRawY();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                moveCount = 0;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int dx = v.getLeft() + (newDx - preDx);
+                int dy = v.getTop() + (newDy - preDy);
+                v.layout(dx, dy, dx + v.getWidth(), dy + v.getHeight());
+                int[] innerLocation = {dx, dy};
+                iconMap.get(String.valueOf(v.getId())).setLocation(innerLocation);
+                moveCount++;
+                break;
+        }
+        preDx = newDx;
+        preDy = newDy;
+        return false;
+    }
 }
 
