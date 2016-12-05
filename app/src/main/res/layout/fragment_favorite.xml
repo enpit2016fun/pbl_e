@@ -15,717 +15,88 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
         android:weightSum="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
             android:weightSum="1">
 
-            <!--
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-            -->
-            <Space android:layout_width="20dp"
-                android:layout_height="20dp"/>
-            <ImageView
-                android:layout_height="50dp"
                 android:layout_width="10dp"
+                android:layout_height="50dp"
                 android:background="#ffffff"
 
                 />
+
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:hint="検索"
-                android:textColorHint="#a9a9a9"
-                android:textColor="#696969"
-                android:background="#ffffff"
-                android:colorControlActivated="#ffffff"
-
-                />
-
-            <ImageButton
-                android:layout_height="50dp"
-                android:layout_width="50dp"
-                android:src="@drawable/ic_search_black_24px"
-                android:background="#4784BF"/>
-            <Space android:layout_width="20dp"
-                android:layout_height="20dp"/>
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:background="#ffffff"
-                android:entries="@array/sort_list" />
-            <ImageButton
-                android:layout_height="50dp"
-                android:layout_width="50dp"
-                android:src="@drawable/ic_sort_black_24px"
-                android:background="#4784BF"/>
-            <Space android:layout_width="20dp"
-                android:layout_height="20dp"/>
-            <Button
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:background="#ffffff"
-                android:id="@+id/text_seach"
-                android:text="詳細検索"
-                android:textSize="18dp"/>
+                android:colorControlActivated="#ffffff"
+                android:hint="検索"
+                android:textColor="#696969"
+                android:textColorHint="#a9a9a9"
+
+                />
+
             <ImageButton
-                android:layout_height="50dp"
                 android:layout_width="50dp"
-                android:src="@drawable/ic_playlist_add_check_black_24px"
-                android:background="#4784BF"/>
+                android:layout_height="50dp"
+                android:background="#6495ED"
+                android:src="@drawable/ic_search_black_24px" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:entries="@array/sort_list" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#6495ED"
+                android:src="@drawable/ic_sort_black_24px" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <Button
+                android:id="@+id/text_seach"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:text="詳細検索"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#6495ED"
+                android:src="@drawable/ic_playlist_add_check_black_24px" />
 
         </LinearLayout>
 
-        <ScrollView
+        <ListView
+            android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#ffffff">
-
-            <!--<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >-->
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-
-                android:weightSum="7">
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image1"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_daiki" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name1"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_weight="1"
-                                    android:text="工藤 だいき"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView24"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="11/23" />
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView2"
-                                android:layout_width="510dp"
-                                android:layout_height="0dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" 函館には行けません"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image2"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_inoue" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name2"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="井上 裕介"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView25"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="11/23" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" こんにちは"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image3"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_maeken" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name3"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="前田 健太"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView26"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="11/23" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView23"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" WBC出たい"
-                                android:textSize="20dp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image4"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_osanai" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name4"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="長内 カズマ"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView27"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="11/23" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView4"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" スピッツが好きです"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image5"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_sasaki" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name5"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="佐々木 ゆうた"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView28"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="昨日" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView5"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" 岩手で勉強してます"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image6"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_simiken" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name6"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="しみけん"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView30"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="昨日" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView6"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" 本物です"
-                                android:textSize="20dp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image7"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_kei" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name7"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="錦織 圭"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView29"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="昨日" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView18"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" テニスが得意です"
-                                android:textSize="20dp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image8"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_ozu" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name8"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="篠宮 暁"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView31"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="一昨日" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView14"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text=" オズボーン"
-                                android:textSize="20dp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <ImageView
-                            android:id="@+id/person_image9"
-                            android:layout_width="60dp"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="0.45"
-                            app:srcCompat="@drawable/user_sample_gen" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:layout_weight="0.55"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/person_name9"
-                                    android:layout_width="100dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:text="星野 源"
-                                    android:textSize="20dp" />
-
-                                <TextView
-                                    android:id="@+id/textView32"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="320dp"
-                                    android:layout_weight="1"
-                                    android:text="一昨日" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/textView17"
-                                android:layout_width="510dp"
-                                android:layout_height="10dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_weight="0.7"
-                                android:background="#f0f8ff"
-                                android:gravity="center_vertical"
-                                android:text="「 恋」聴いてね"
-                                android:textSize="20dp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </TableRow>
-            </TableLayout>
-            <!--</LinearLayout>-->
-        </ScrollView>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
