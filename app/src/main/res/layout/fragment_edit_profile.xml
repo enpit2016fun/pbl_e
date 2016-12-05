@@ -154,10 +154,13 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:background="#000000"
+                    android:padding="1dip">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -187,10 +190,13 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:background="#000000"
+                    android:padding="1dip">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -216,6 +222,13 @@
                             android:layout_alignParentStart="true"
                             android:entries="@array/gender_list"
                             android:spinnerMode="dialog" />
+                        <Switch
+                            android:text="非表示"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/switch4"
+                            android:gravity="right"
+                            />
 
                     </LinearLayout>
                 </TableRow>
@@ -223,10 +236,13 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:padding="1dip"
                     android:layout_weight="1">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -259,6 +275,13 @@
                             android:layout_weight="0.00"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="歳" />
+                        <Switch
+                            android:text="非表示"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/switch5"
+                            android:gravity="right"
+                            />
 
                     </LinearLayout>
                 </TableRow>
@@ -266,10 +289,13 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:padding="1dip"
                     android:layout_weight="1">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -318,6 +344,13 @@
                             android:layout_weight="0.00"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="日" />
+                        <Switch
+                            android:text="非表示"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/switch6"
+                            android:gravity="right"
+                            />
 
                     </LinearLayout>
                 </TableRow>
@@ -325,10 +358,13 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:padding="1dip"
                     android:layout_weight="1">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -354,6 +390,13 @@
                             android:layout_alignParentStart="true"
                             android:entries="@array/nationality_list"
                             android:spinnerMode="dialog" />
+                        <Switch
+                            android:text="非表示"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/switch7"
+                            android:gravity="right"
+                            />
 
                     </LinearLayout>
                 </TableRow>
@@ -361,11 +404,14 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:padding="1dip"
                     android:layout_weight="1">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -389,6 +435,13 @@
                             android:layout_alignParentStart="true"
                             android:entries="@array/birthplace_list"
                             android:spinnerMode="dialog" />
+                        <Switch
+                            android:text="非表示"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/switch8"
+                            android:gravity="right"
+                            />
 
                     </LinearLayout>
                 </TableRow>
@@ -396,11 +449,14 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:padding="1dip"
                     android:layout_weight="1">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
 
                         <TextView
@@ -424,6 +480,13 @@
                             android:layout_alignParentStart="true"
                             android:entries="@array/job_list"
                             android:spinnerMode="dialog" />
+                        <Switch
+                            android:text="非表示"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/switch9"
+                            android:gravity="right"
+                            />
 
                     </LinearLayout>
                 </TableRow>
@@ -431,11 +494,14 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:padding="1dip"
                     android:layout_weight="1">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="#FFFFFF"
                         android:orientation="horizontal">
                         <TextView
                             android:id="@+id/textView10"

@@ -23,6 +23,7 @@
         <item>女</item>
     </string-array>
     <string-array name="hobby_list">
+        <item>設定なし</item>
         <item>音楽</item>
         <item>映画</item>
         <item>ファッション</item>
