@@ -38,7 +38,7 @@ public class SearchDialog extends AlertDialog.Builder {
     private TextView createTitleTextView(Context context) {
         TextView text = new TextView(context);
         int padding = 50;
-        text.setBackgroundColor(Color.parseColor("#4784BF"));
+        text.setBackgroundColor(Color.parseColor("#6495ED"));
         text.setTextColor(Color.WHITE);
         text.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         text.setPadding(padding, padding, padding, padding);
