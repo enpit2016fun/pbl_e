@@ -80,6 +80,18 @@ public class BLEReceiver implements BluetoothAdapter.LeScanCallback {
     @Override
     public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
         if (!isIbeacon(scanRecord)) return;
+        if (scanRecordToUuid(scanRecord).equals("44444444444444444444444444444444")) {
+            this.callback.execute(toIntegerStr("4"), rssi);
+            return;
+        } else if (scanRecordToUuid(scanRecord).equals("55555555555555555555555555555555")) {
+            this.callback.execute(toIntegerStr("5"), rssi);
+            return;
+        } else if (scanRecordToUuid(scanRecord).equals("66666666666666666666666666666666")) {
+            this.callback.execute(toIntegerStr("6"), rssi);
+            return;
+        }
+
+
         this.callback.execute(toIntegerStr(scanRecordToMinor(scanRecord)), rssi);
     }
 
