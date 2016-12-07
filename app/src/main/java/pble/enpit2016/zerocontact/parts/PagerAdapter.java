@@ -35,7 +35,7 @@ public class PagerAdapter extends FragmentPagerAdapter implements CustomViewPage
             case 1:
                 return FavoriteFragment.newInstance();
             case 2:
-                return ProfileEditFragment.newInstance();
+                return ProfileFragment.newInstance();
             default:
                 return TestFragment.newInstance(position);
         }
